@@ -1,0 +1,132 @@
+
+.ski_report {
+    background: url("http://www.canada.com/travel/ideas/sun-and-sand/images/skiconditions_gradBg.jpg") repeat-x scroll center top #FFFFFF;
+    border: 1px solid #CCCCCC;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    height: 100%;
+    padding: 4px;
+    width: 210px;
+}
+.ski_report a {
+    color: #646793;
+    cursor: pointer;
+    text-decoration: none;
+}
+.ski_report a:hover {
+    text-decoration: underline;
+}
+.ski_report .ski_title {
+    border-bottom: 1px solid #999999;
+    float: left;
+    height: 30px;
+    margin: 0 0 10px;
+    width: 100%;
+}
+.ski_report .ski_title span.title {
+    color: #999999;
+    float: left;
+    font-weight: bold;
+    padding: 5px 0 5px 10px;
+    width: 110px;
+}
+.ski_report .ski_title span.sponsored {
+    float: right;
+    font-size: 10px;
+    padding: 0 5px 0 0;
+    width: 80px;
+}
+.ski_report .ski_title span.sponsored img {
+    border: 0 none;
+    height: 15px;
+    width: 73px;
+}
+.ski_report .change_resort {
+    float: left;
+    font-size: 11px;
+    margin: 0 0 5px;
+    width: 100%;
+}
+.ski_report .province {
+    border-bottom: 1px solid #CCCCCC;
+    color: #000000;
+    float: left;
+    margin: 0 0 5px;
+    padding: 5px 0 10px;
+}
+.ski_report .province .left {
+    float: left;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    width: 130px;
+}
+.ski_report .province .right {
+    color: #999999;
+    float: left;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    width: 70px;
+}
+.ski_report .province .ski_report_table {
+    float: left;
+    margin: 0 0 5px;
+}
+.ski_report .province .ski_report_table td.first_td {
+    color: #999999;
+    font-weight: bold;
+}
+.ski_report .province .ski_report_table td.second_td {
+    color: #000000;
+    font-size: 12px;
+    font-weight: bold;
+}
+.ski_report .province .ski_report_table td.second_td span {
+    color: #990000;
+}
+.ski_report .weathernetwork {
+    float: left;
+    width: 100%;
+}
+.ski_report .weathernetwork img {
+    border: medium none;
+    height: 55px;
+    width: 210px;
+}
+.ski_report .weathernetwork span.more {
+    color: #000000;
+    float: left;
+    font-weight: bold;
+    margin: 5px 0;
+}
+.ski_report .weathernetwork span.copyright {
+    color: #666666;
+    float: left;
+    font-size: 11px;
+    padding: 10px 0 0;
+    width: 210px;
+}
+.ski_report #sr_choose_prov {
+    display: none;
+    margin-bottom: 5px;
+}
+.ski_report #sr_choose_prov #sr_dd_province {
+    width: 150px;
+}
+.ski_report #sr_choose_resorts {
+    display: none;
+    margin-bottom: 5px;
+}
+.ski_report #sr_choose_resorts ul.resort_list {
+    max-height: 150px;
+    overflow-y: auto;
+}
+.ski_report #sr_choose_resorts ul.resort_list li {
+    border-bottom: 1px dotted #CCCCCC;
+}
+.ski_report #sr_choose_resorts ul.resort_list p {
+    line-height: 1.25em;
+    margin: 0;
+}

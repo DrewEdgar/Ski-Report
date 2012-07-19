@@ -17,6 +17,18 @@ jQuery(document).ready(function(){
 	var fullreport = eval ("(" + inString + ")");//eval the JSON string into a new Object
 	$("#hidden_div").remove();//clean up hidden div	
 	
+	
+	if(!Array.indexOf){
+		Array.prototype.indexOf = function(obj){
+			for (var i=0; i<this.length; i++){
+				if (this[i]==obj){
+					return i;
+				}
+			}
+			return -1;
+		}
+	}
+	
 	//Event Handlers
 	jQuery("#sr_change_resort").click(showStart);	
 	jQuery("#sr_dd_province").change(onChangeProvince);
@@ -34,26 +46,26 @@ jQuery(document).ready(function(){
 	}
 	
 	function showStart() { //Start from the begining
-		$("#sr_change_resort").hide(); //Hides the link that got you here
-		$("#sr_results").hide(); //Hides the results section
-		$("#sr_choose_prov").show(); //Show the Provice DropDown
-		$("#sr_dd_province").val(1); //Resets Province DropDown to default selection
+		jQuery("#sr_change_resort").hide(); //Hides the link that got you here
+		jQuery("#sr_results").hide(); //Hides the results section
+		jQuery("#sr_choose_prov").show(); //Show the Provice DropDown
+		jQuery("#sr_dd_province").val(1); //Resets Province DropDown to default selection
 	}
 	
 	function onChangeProvince() { //When a Province is chosen...
-		$("input").attr('checked', false); //reset all checkboxes
-		$('#sr_choose_resorts').show(); //show the Checkbox list
-		$('li').hide(); //Hide all of the checkboxes...
+		jQuery("input").attr('checked', false); //reset all checkboxes
+		jQuery('#sr_choose_resorts').show(); //show the Checkbox list
+		jQuery('li').hide(); //Hide all of the checkboxes...
 		
-		if ($("#sr_dd_province").val() != "") { //... and then see what the Province selection was...
-			var i = $("#sr_dd_province").val(); //... so that only the chosen Province checkboxes...
-			$('.'+i).show(); //... are shown!
+		if (jQuery("#sr_dd_province").val() != "") { //... and then see what the Province selection was...
+			var i = jQuery("#sr_dd_province").val(); //... so that only the chosen Province checkboxes...
+			jQuery('.'+i).show(); //... are shown!
 		}
 	}
 	function onBtnShowResults(){ //The 'Confirm' button for choosing the Resorts
 		var arrResorts = []; //new array for storing the Resorts
 		
-		$('#sr_choose_resorts input:checked').each(function(){ //For each of the checkboxes that are checked...
+		jQuery('#sr_choose_resorts input:checked').each(function(){ //For each of the checkboxes that are checked...
 			arrResorts.push($(this).attr("value")); //... add them to the array.
 		});
 		
@@ -68,10 +80,10 @@ jQuery(document).ready(function(){
 	function onShowResults(arrResorts) { //Show the details for the desired Ski Resorts
 		var inputHtml = "";
 		
-		$("#sr_change_resort").show(); //Show the link to start over
-		$("#sr_choose_prov").hide(); //hide the section for choosing the Province
-		$("#sr_choose_resorts").hide(); //Hide the checkbox list
-		$('#sr_results').show(); //Show the results Panel
+		jQuery("#sr_change_resort").show(); //Show the link to start over
+		jQuery("#sr_choose_prov").hide(); //hide the section for choosing the Province
+		jQuery("#sr_choose_resorts").hide(); //Hide the checkbox list
+		jQuery('#sr_results').show(); //Show the results Panel
 		
 		 //Cookie stores selections with Comma Seperated Values
 		 //This filters it out and converts it to an array
@@ -82,9 +94,9 @@ jQuery(document).ready(function(){
 		
 		//String construction for outputting Report details
 		inputHtml = "<div class='province'>";
-		$.each(arrResorts, function(key, value){//For each of the chosen Resorts
+		jQuery.each(arrResorts, function(key, value){//For each of the chosen Resorts
 			
-			$.each(fullreport['SITE'], function(){ //For each of the 'SITE' instances in the Object
+			jQuery.each(fullreport['SITE'], function(){ //For each of the 'SITE' instances in the Object
 				if(this['@']['LOCATIONID'] == value){ //Check if the 'SITE' is one of the selected Resorts
 					inputHtml += "<table border=0><tbody><tr>";
 					inputHtml += "<td class='left'>" + this['@']['NAME_EN'] + " &raquo;</td>";
@@ -114,7 +126,7 @@ jQuery(document).ready(function(){
 			});
 		});inputHtml += "</div>";
 		
-		$('#sr_results').html(inputHtml); //Place the generated HTML on the page
+		jQuery('#sr_results').html(inputHtml); //Place the generated HTML on the page
 		eraseCookie(sr_cookie_resorts); //Clear the cookie from 'last time'
 		
 		createCookie(sr_cookie_resorts,arrResorts,15); //Make a new cookie with the current selections
